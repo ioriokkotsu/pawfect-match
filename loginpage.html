@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Login Page</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <style>
+    /* Color Palette */
+    :root {
+      --primary-color: #8D6E63; /* Warm Brown */
+      --secondary-color: #F8BBD0; /* Light Pink */
+      --accent-color: #F8BBD0; /* Mustard Yellow */
+      --background-color: #8f7165; /* Light Beige */
+      --text-color: #5D4037; /* Deep Brown */
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--background-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+
+      /* Updated background image */
+      background-image: url("assets/img/bg_pawfectmatch.png");
+      background-size: cover; /* Ensures the image covers the entire screen */
+      background-position: center; /* Centers the image */
+      background-repeat: no-repeat; /* Prevents the image from repeating */
+      background-attachment: fixed; /* Keeps the background image fixed during scrolling */
+    }
+
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    }
+
+    .login-box {
+      background-color: #fff;
+      padding: 50px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .login-box img {
+      width: 200px;  /* Increased logo size */
+      margin-bottom: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto; /* Centers the logo */
+    }
+
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    .textbox {
+      margin-bottom: 20px;
+    }
+
+    .textbox input {
+      width: 80%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .textbox input:focus {
+      border-color: var(--accent-color);
+    }
+
+    button {
+      width: 30%;
+      padding: 12px;
+      background-color: var(--primary-color);
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: var(--accent-color);
+    }
+
+    .register-link {
+      margin-top: 15px;
+    }
+
+    .register-link a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .register-link a:hover {
+      color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <!-- Logo Section -->
+      <img src="assets/img/pawfect_match_logo.png" alt="Logo">
+
+      <h2>Login to Admin Website1</h2>
+      <form action="#" method="POST">
+        <div class="textbox">
+          <input type="text" placeholder="Username" name="username" required>
+        </div>
+        <div class="textbox">
+          <input type="password" placeholder="Password" name="password" required>
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </div>
+  </div>
+  <script type="module" src="login.mjs"></script>
+</body>
+</html>

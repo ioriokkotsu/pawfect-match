@@ -4,13 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+    <link href="assets/css/login.css" rel="stylesheet">
 </head>
 <body>
-    <form id="loginForm">
+    <div class="container">
+        <div class="card">
+            <a class="login">Login</a>
+
+            <div class="inputBox">
+                <input id="email" type="email" required="required">
+                <span class="email">Email</span>
+            </div>
+            <div class="inputBox">
+                <input id="password" type="password" required="required">
+                <span>Password</span>
+            </div>
+            <button id="loginBtn" class="enter">Login</button>
+
+        </div>
+    </div>
+    <!--form id="loginForm">
         <input type="email" id="email" placeholder="Enter User Email" autocomplete="off" />
         <input type="password" id="password" placeholder="Enter Password" autocomplete="off" />
         <button id="loginBtn">Login</button>
-    </form>
+    </form-->
     <script type="module" src="login.mjs"></script>
 </body>
 </html>

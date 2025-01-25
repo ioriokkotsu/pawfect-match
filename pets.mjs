@@ -12,6 +12,7 @@ import {
   query,
   deleteDoc,
 } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-lite.js";
+
 import { getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -182,7 +183,7 @@ if (!saveButton.hasListenerAttached) {
 }
 
 async function addPetDoc() {
-  const ref = doc(db, "shelters/PAWS");
+  const ref = doc(db, `shelters/${petsRef}`);
   const petData = {
     petName: document.getElementById("petName").value,
     petSpecies: document.getElementById("petSpecies").value,
@@ -196,6 +197,7 @@ async function addPetDoc() {
   try {
     const petColl = collection(db, "pets");
     const petRef = await addDoc(petColl, petData);
+    await updateDoc(petRef, {petID: petRef.path});
     console.log(petRef.id);
     alert("Success");
     console.log("SUCCESS");
