@@ -33,7 +33,7 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log("user is signed in");
   } else {
-    window.location.href = './login.html';
+    window.location.href = './loginpage.html';
   }
 })
 ////Main Data (Shelters)
@@ -311,7 +311,7 @@ async function logout() {
   signOut(auth)
   .then(() => {
     console.log("User logged out");
-    window.location.href = "./login.html";
+    window.location.href = "./loginpage.html";
   })
   .catch((error) => {
     console.error(error);
