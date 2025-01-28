@@ -147,7 +147,7 @@ async function updateStatus(docId, statusAppointment) {
   try {
     const docRef = doc(
       db,
-      `shelters/n9IJIxh5pOAEIxKkVKTC/appointment/${docId}`
+      `shelters/${sheltersID}/appointment/${docId}`
     );
     await setDoc(docRef, statusAppointment, { merge: true });
     loadAppointments();
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log("click");
           logout();
       });
-      loginBtn.hasListenerAttached = true;
+      logoutBtn.hasListenerAttached = true;
   }
 })
 async function logout() {
