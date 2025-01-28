@@ -317,3 +317,9 @@ async function logout() {
     console.error(error);
   })
 }
+const navToggle = document.getElementById('nav-toggle');
+const navDropdown = document.getElementById('nav-dropdown');
+
+navToggle.addEventListener('click', () => {
+  navDropdown.classList.toggle('show');
+});
