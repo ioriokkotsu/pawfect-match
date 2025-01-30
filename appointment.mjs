@@ -79,6 +79,7 @@ async function loadAppointments(filter) {
     let index = 0;
     for (const doc of snapshot.docs) {
       const dc = doc.data();
+      const docRef = doc.ref;
       //const statusBool = dc.statusAppointment === "Pending";
       index++;
       //const displayNamee = (await getDoc(dc.bookedBy))?.data()?.display_name;
@@ -87,17 +88,31 @@ async function loadAppointments(filter) {
       //const displayName = (await getDoc(doc.data().bookedBy))?.data()?.display_name;
       let progress;
       let time;
+      const currentDateTime = new Date();
       if (dc.statusAppointment == "Approved") {
-        const currentDateTime = new Date();
-        if (currentDateTime < dc.timeSlot) {
+        console.log(currentDateTime.getTime());
+        console.log(dc.timeSlot.toMillis());
+        if (currentDateTime.getTime() > dc.timeSlot.toMillis()) {
           progress = "Done";
         } else {
           const appTime = dc.timeSlot.toMillis();
           const currentTime = currentDateTime.getTime();
-          const time = Math.floor(
-            (appTime - currentTime) / (1000 * 60 * 60 * 24)
-          );
-          progress = `Upcoming in ${time} day`;
+          const diffTime = (appTime - currentTime) / (1000 * 60 * 60 * 24);
+          console.log(diffTime);
+          if (diffTime < 1) {
+            const newDiffTime = Math.floor(diffTime * 24);
+            progress = `Upcoming in ${newDiffTime} hours`;
+          } else {
+            const time = Math.floor(diffTime);
+            progress = `Upcoming in ${time} day`;
+          }
+        }
+      } else if (dc.statusAppointment == "Pending" || "Canceled") {
+        if (currentDateTime.getTime() > dc.timeSlot.toMillis()) {
+          progress = "Date has passed";
+          await setDoc(docRef, {statusAppointment: "Canceled"}, {merge: true});
+        } else {
+          progress = "-";
         }
       } else {
         progress = "-";
