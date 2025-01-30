@@ -62,35 +62,18 @@
     </div>
   </header>
 
-  <img id="orgLogo" src="assets/img/spca_logo.png" alt="Logo" class="paws-logo">
-  <h1 id="shelterTitle">Pet Management - SPAC Selangor</h1>
-
-  <div class="d-flex justify-content-between align-items-center">
-    <div class="filter-container">
-      <label for="statusFilter">Filter by Pet: </label>
-      <select id="statusFilter" onchange="filterPets()">
-        <option value="All">All</option>
-        <option value="Dog">Dog</option>
-        <option value="Cat">Cat</option>
-      </select>
-    </div>
+  <img id="orgLogo" src="assets/img/pawfect_match_logo.png" alt="Logo" class="paws-logo">
+  <h1 id="shelterTitle">Support Centre - FAQs</h1>
   
-    <button id="add-button" data-id="1" data-action="addModal" class="btn btn-success btn-lg btn-custom mt-3" style="margin-right: 100px;">
-      <i class="bi bi-plus-lg"></i> Add New Pet
-    </button>
+
   </div>  
 
   <table id="petTable">
     <thead>
       <tr>
         <th>No.</th>
-        <th>Photo</th>
-        <th>Name</th>
-        <th>Type of Pet</th>
-        <th>Breed</th>
-        <th>Size (kg)</th>
-        <th>Living Condition</th>
-        <th>Available</th>
+        <th>Question</th>
+        <th>Answer</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -104,68 +87,24 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="petModalLabel">Add/Edit Pet</h5>
+          <h5 class="modal-title" id="petModalLabel">FAQS - Question and Answer</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <form id="petForm" novalidate>
                 <input type="hidden" id="petId" />
                 <div class="mb-3">
-                  <label for="petName" class="form-label">Pet Name</label>
-                  <input type="text" class="form-control" id="petName" required>
+                  <label for="question" class="form-label">QUESTION</label>
+                  <input type="text" class="form-control" id="question" required readonly style="text-transform: uppercase;">
                   <div class="invalid-feedback">
                     Pet Name is required.
                   </div>
                 </div>
                 <div class="mb-3">
-                    <label for="petSpecies" class="form-label">Type of Pet</label>
-                    <select class="form-select" id="petSpecies" required>
-                      <option value="Dog">Dog</option>
-                      <option value="Cat">Cat</option>
-                    </select>
-                  <div class="invalid-feedback">
-                    Species is required.
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="petBreed" class="form-label">Breed</label>
-                  <input type="text" class="form-control" id="petBreed" required>
+                  <label for="answer" class="form-label">ANSWER</label>
+                  <input type="text" class="form-control" id="answer" required style="text-transform: uppercase;">
                   <div class="invalid-feedback">
                     Breed is required.
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="petSize" class="form-label">Size (kg)</label>
-                  <input type="number" class="form-control" id="petSize" required>
-                  <div class="invalid-feedback">
-                    Size is required.
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="livingCondition" class="form-label">Living Condition</label>
-                  <select class="form-select" id="livingCondition" required>
-                    <option value="Indoor">Indoor</option>
-                    <option value="Outdoor">Outdoor</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Living condition is required.
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="availableAdopt" class="form-label">Available for Adoption</label>
-                  <select class="form-select" id="availableAdopt" required>
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Please select if the pet is available for adoption.
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="photoUrl" class="form-label">Photo URL</label>
-                  <input type="url" class="form-control" id="photoUrl" required>
-                  <div class="invalid-feedback">
-                    A valid photo URL is required.
                   </div>
                 </div>
               </form>        </div>
@@ -178,7 +117,7 @@
   </div>
 
   <!-- JavaScript -->
-  <script src="pets.mjs" type="module"></script>
+  <script src="support.mjs" type="module"></script>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

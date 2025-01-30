@@ -315,7 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log("click");
           logout();
       });
-      loginBtn.hasListenerAttached = true;
+      logoutBtn.hasListenerAttached = true;
   }
 })
 async function logout() {
